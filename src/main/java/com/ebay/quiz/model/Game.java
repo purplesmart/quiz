@@ -18,7 +18,7 @@ public class Game {
     @Id
     public final UUID id;
     public final List<User> users;
-    public final List<Question> questions;
+    public final List<QuestionEntity> questions;
 
     public UUID GetId() {
         return id;
@@ -28,7 +28,7 @@ public class Game {
         return users;
     }
 
-    public List<Question> GetQuestions() {
+    public List<QuestionEntity> GetQuestions() {
         return questions;
     }
 

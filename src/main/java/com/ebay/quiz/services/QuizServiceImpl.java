@@ -41,11 +41,21 @@ public class QuizServiceImpl implements QuizService{
             return null;
         }
         User user = usersService.GetUser(userName);
-        Question question = questionsService.GetQuestion(game.get(),user);
+        QuestionEntity question = questionsService.GetQuestion(game.get(),user);
         gameService.AddQuestion(game.get(),question);
         return question.GetLightQuestion();
     }
 
+    public AnswerResult AnswerQuestion(Answer answer) {
+
+        Optional<Game> game = gameService.GetGame(answer.getGameId());
+        if(game.isEmpty()){
+            return null;
+        }
+        return questionsService.AnswerQuestion(answer);
+    }
+
+    /*
     public AnswerResult AnswerQuestion(Answer answer) {
 
         Optional<Game> game = gameService.GetGame(answer.getGameId());
@@ -66,5 +76,5 @@ public class QuizServiceImpl implements QuizService{
         usersService.UserAnswer(user, answer);
         gameService.AddUser(game.get(), user);
         return questionsService.GetAnswerResult(relevantQuestion.get(), answer);
-    }
+    }*/
 }

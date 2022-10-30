@@ -4,9 +4,9 @@ import java.util.UUID;
 
 public class Answer {
 
-    public final String userName;
-    public final UUID gameId;
-    public final UUID questionId;
+    public String userName;
+    public UUID gameId;
+    public UUID questionId;
     public int answerId;
 
     public Answer(String userName, UUID gameId, UUID questionId, int answerId) {

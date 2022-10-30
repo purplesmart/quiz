@@ -1,3 +1,4 @@
+/*
 package com.ebay.quiz.services;
 
 import com.ebay.quiz.model.*;
@@ -11,19 +12,6 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class GameServiceTest {
-
-    private GameRepository gameRepository;
-    private GameService gameService;
-
-    @BeforeAll
-    public void setUp() {
-        gameRepository = Mockito.mock(GameRepository.class);
-        gameService = new GameServiceImpl(gameRepository);
-    }
 
     @Test
     void addUser() {
@@ -105,4 +93,4 @@ class GameServiceTest {
         final int MAX_POSSIBLE_ANSWERS = 4;
         return new Answer(userName, gameId, question.getId(), MAX_POSSIBLE_ANSWERS - 1 - question.getRightAnswer());
     }
-}
+}*/

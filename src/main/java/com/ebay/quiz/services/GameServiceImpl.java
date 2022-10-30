@@ -38,7 +38,7 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public void AddQuestion(Game game, Question question) {
+    public void AddQuestion(Game game, QuestionEntity question) {
         if(!game.GetQuestions().stream().anyMatch(qstn -> qstn.Id.equals(question.Id))) {
             game.GetQuestions().add(question);
             gameRepository.save(game);
@@ -61,12 +61,12 @@ public class GameServiceImpl implements GameService {
         return leaderboard;
     }
 
-    private Integer GetScore(List<Answer> userAnswers, List<Question> questions) {
+    private Integer GetScore(List<Answer> userAnswers, List<QuestionEntity> questions) {
         return userAnswers
                 .stream()
                 .mapToInt(answer ->
                         {
-                            Optional<Question> questionOption =
+                            Optional<QuestionEntity> questionOption =
                                     questions
                                             .stream()
                                             .filter(question -> question.getId().equals(answer.getQuestionId())).findFirst();
